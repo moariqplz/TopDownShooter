@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{673D4FC2-6153-89C5-A6C4-210DFD50870C}") = "TopDown Game", "Assembly-CSharp.csproj", "{70D0B1E3-CFE4-7794-5E3E-9036C9504E48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70D0B1E3-CFE4-7794-5E3E-9036C9504E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D0B1E3-CFE4-7794-5E3E-9036C9504E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D0B1E3-CFE4-7794-5E3E-9036C9504E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D0B1E3-CFE4-7794-5E3E-9036C9504E48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

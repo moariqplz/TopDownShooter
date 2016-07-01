@@ -42,17 +42,18 @@ public class PlayerController : MonoBehaviour {
 			animator.SetBool ("Crouching", false);
 		}
 	}
-	public void EquipWeapon(GameObject weaponPrefab)
+	public void EquipWeapon(Weapon weaponPrefab)
 	{
 
 		//Creating the weapon from prefab
-		GameObject newWeapon = Instantiate (weaponPrefab,weaponMountPoint.position,weaponMountPoint.rotation ) as GameObject;
+		Weapon newWeapon = Instantiate (weaponPrefab,weaponMountPoint.position,weaponMountPoint.rotation ) as Weapon;
 
 		//Making a child of the mountpoint
-		newWeapon.GetComponent<Transform> ().parent = weaponMountPoint;
-
+		newWeapon.transform.SetParent(weaponMountPoint);
+		newWeapon.transform.localPosition = weaponPrefab.transform.localPosition;
+		newWeapon.transform.localRotation = weaponPrefab.transform.localRotation;
 		//Saving the weapon I have Equiped
-		data.weapon = newWeapon.GetComponent<Weapon> ();
+		data.weapon = newWeapon;
 	}
 
 	public void UnequipWeapon()
@@ -75,9 +76,21 @@ public class PlayerController : MonoBehaviour {
 			animator.SetIKRotation (AvatarIKGoal.RightHand, data.weapon.RightHandPosition.rotation);
 			animator.SetIKPositionWeight (AvatarIKGoal.RightHand, 1.0f);
 			animator.SetIKRotationWeight (AvatarIKGoal.RightHand, 1.0f);
-		} else {
+			if (data.weapon.RightElbowPosition != null) 
+			{
+				animator.SetIKHintPosition (AvatarIKHint.RightElbow, data.weapon.RightElbowPosition.position);
+				animator.SetIKHintPositionWeight (AvatarIKHint.RightElbow, 1.0f);
+			} 
+			else 
+			{
+				animator.SetIKHintPositionWeight (AvatarIKHint.RightElbow, 0.0f);
+			}
+		} 
+		else 
+		{
 			animator.SetIKPositionWeight (AvatarIKGoal.RightHand, 0.0f);
 			animator.SetIKRotationWeight (AvatarIKGoal.RightHand, 0.0f);
+			animator.SetIKHintPositionWeight (AvatarIKHint.RightElbow, 0.0f);
 		}
 
 		if (data.weapon.LeftHandPosition != null) {
@@ -85,9 +98,21 @@ public class PlayerController : MonoBehaviour {
 			animator.SetIKRotation (AvatarIKGoal.LeftHand, data.weapon.LeftHandPosition.rotation);
 			animator.SetIKPositionWeight (AvatarIKGoal.LeftHand, 1.0f);
 			animator.SetIKRotationWeight (AvatarIKGoal.LeftHand, 1.0f);
-		} else {
+			if (data.weapon.LeftElbowPosition != null) 
+			{
+				animator.SetIKHintPosition (AvatarIKHint.LeftElbow, data.weapon.LeftElbowPosition.position);
+				animator.SetIKHintPositionWeight (AvatarIKHint.LeftElbow, 1.0f);
+			}
+			else 
+			{
+				animator.SetIKHintPositionWeight (AvatarIKHint.LeftElbow, 0.0f);
+			}
+		} 
+		else 
+		{
 			animator.SetIKPositionWeight (AvatarIKGoal.LeftHand, 0.0f);
 			animator.SetIKRotationWeight (AvatarIKGoal.LeftHand, 0.0f);
+			animator.SetIKHintPositionWeight (AvatarIKHint.LeftElbow, 0.0f);
 		}
 
 	}

@@ -5,13 +5,13 @@ public class SpeedPickup : Pickup {
 
 	public float speedIncrease;
 
-	public override void OnPickup (GameObject other)
+	public override void OnPickup (PlayerController player)
 	{
 		// TODO: Increase our speed!
-		other.GetComponent<PlayerController>().moveSpeed += speedIncrease;
+		player.moveSpeed += speedIncrease;
 
 		// Run the OnPickup function from the parent class
-		base.OnPickup (other);
+		base.OnPickup (player);
 	}
 
 }

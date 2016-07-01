@@ -17,12 +17,17 @@ public abstract class Pickup : MonoBehaviour {
 	}
 
 	// Runs when an object enters the trigger
-	void OnTriggerEnter (Collider other) {
-		OnPickup (other.gameObject);
+	void OnTriggerEnter (Collider other)
+	{
+		PlayerController player = other.GetComponent<PlayerController> ();
+		if(player)
+		{
+			OnPickup (player);
+		}
 	}
 
 	// Virtual means this function is intended to be overwritten in the child class
-	public virtual void OnPickup (GameObject other) {
+	public virtual void OnPickup (PlayerController other) {
 		Destroy (gameObject);
 	}
 }

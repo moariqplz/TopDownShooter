@@ -10,7 +10,8 @@ public class Weapon : MonoBehaviour {
 
 	public Transform RightHandPosition;
 	public Transform LeftHandPosition;
-
+	public Transform RightElbowPosition;
+	public Transform LeftElbowPosition;
 	// Use this for initialization
 	void Start () {
 	
@@ -18,6 +19,5 @@ public class Weapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 }
